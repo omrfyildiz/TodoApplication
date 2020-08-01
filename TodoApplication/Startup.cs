@@ -24,12 +24,13 @@ namespace TodoApplication
         {
             services.AddControllersWithViews();
 
+            services.AddDbContext<TodoDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))); 
+
             //Dependencies
+            //services.AddSingleton<ITodoItemService, RealTodoItemService>(_ => new RealTodoItemService(context: new TodoDbContext()));
             services.AddScoped<ITodoItemService, RealTodoItemService>();
             services.AddSingleton<IKodluyoruzLogger, KodluyoruzLogger>();
-
-            services.AddDbContext<TodoDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
 
         }

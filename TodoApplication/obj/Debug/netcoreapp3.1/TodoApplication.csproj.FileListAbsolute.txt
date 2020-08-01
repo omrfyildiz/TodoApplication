@@ -148,6 +148,7 @@ C:\Users\SamsunG\source\repos\TodoApplication\TodoApplication\bin\Debug\netcorea
 C:\Users\SamsunG\source\repos\TodoApplication\TodoApplication\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\SamsunG\source\repos\TodoApplication\TodoApplication\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\SamsunG\source\repos\TodoApplication\TodoApplication\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\SamsunG\source\repos\TodoApplication\TodoApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\SamsunG\source\repos\TodoApplication\TodoApplication\obj\Debug\netcoreapp3.1\TodoApplication.csproj.CoreCompileInputs.cache
 C:\Users\SamsunG\source\repos\TodoApplication\TodoApplication\obj\Debug\netcoreapp3.1\TodoApplication.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\SamsunG\source\repos\TodoApplication\TodoApplication\obj\Debug\netcoreapp3.1\TodoApplication.csprojAssemblyReference.cache

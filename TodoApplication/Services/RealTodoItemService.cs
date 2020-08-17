@@ -17,12 +17,30 @@ namespace TodoApplication.Services
                 _context = context;
         }
 
+        public async Task<bool> AddItemAsync(TodoItem item)
+        {
+            var entity = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                IsDone = false,
+                Title = item.Title,
+                DueAt = DateTimeOffset.Now.AddDays(3)
+            };
+
+            _context.TodoItem.Add(entity);
+
+            var saveResult = await _context.SaveChangesAsync();
+            return saveResult == 1;
+        }
+
         public async Task<IEnumerable<TodoItem>> GetInCompleteItemsAsync()
         {
-            var items = await _context.TodoList.Where(x => x.IsDone == false).ToArrayAsync();
+            var items = await _context.TodoItem.Where(x => x.IsDone == false).ToListAsync();
             
             return items;
         }
+
+        
     }
 
 }

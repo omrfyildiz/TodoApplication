@@ -9,6 +9,11 @@ namespace TodoApplication.Services
 {
     public class FakeTodoItemService: ITodoItemService
     {
+        public Task<bool> AddItemAsync(TodoItem item)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<TodoItem>> GetInCompleteItemsAsync()
         {
             IEnumerable<TodoItem> items = new[]

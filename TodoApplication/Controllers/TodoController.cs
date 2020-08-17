@@ -10,33 +10,38 @@ namespace TodoApplication.Controllers
 {
     public class TodoController : Controller
     {
-        private readonly ITodoItemService service;
-        private readonly IKodluyoruzLogger logger;
+        private readonly ITodoItemService _service;
+        private readonly IKodluyoruzLogger _logger;
 
-        public TodoController(ITodoItemService _service, IKodluyoruzLogger _logger)
+        public TodoController(ITodoItemService service, IKodluyoruzLogger logger)
         {
-            service = _service;
-            logger = _logger;
+            _service = service;
+            _logger = logger;
         }
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             // Get to-do items from database
 
             //IEnumerable<TodoItem> items = service.GetInCompleteItemsAsync().Result;
-            IEnumerable<TodoItem> items = await service.GetInCompleteItemsAsync();
+            IEnumerable<TodoItem> items = await _service.GetInCompleteItemsAsync();
 
             // Put items into a model
-            TodoViewModel vm = new TodoViewModel
-            {
-                Items = items
-            };
+            TodoViewModel vm = new TodoViewModel();
+            vm.Items = items;
             // Render view using the model
 
             ViewBag.Title = "Yapılacaklar Listesini Yönet";
 
-            // Render view using the model
+            // Modeli görüntüye ekle ve sayfayı göster.
             //logger.Write();
             return View(vm);
+        }
+
+        public async Task<IActionResult> AddItem(TodoItem item)
+        {
+            var result = await _service.AddItemAsync(item);
+
+            return View();
         }
     }
 }
